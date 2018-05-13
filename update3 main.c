@@ -69,6 +69,23 @@ void blockcmp(void)//compare file block count
 }
 void datecmp(void)//compare file change time
 {
+	printf("data compare\n");
+	
+	if (time1.tm_mon == time2.tm_mon) {
+		if (time1.tm_mday == time2.tm_mday)
+			printf("same time. \n");
+		else if (time1.tm_mday < time2.tm_mday)
+			printf("temp1.dat file is early. \n");
+		else
+			printf("temp2.dat file is early. \n");
+	}
+	else if (time1.tm_mon < time2.tm_mon) {
+		printf("temp.dat file is early. \n");
+	}
+	else {
+		printf("temp2.dat file is early. \n");
+	}
+	printf("\n");
 }
 void timecmp(void)
 {
