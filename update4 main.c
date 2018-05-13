@@ -105,5 +105,5 @@ void timecmp(void)
 	else {
 		printf("temp2.dat file is early. \n");
 	}
-	printf("\n");//finish
+	printf("\n");
 }
