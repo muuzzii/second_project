@@ -87,15 +87,15 @@ void datecmp(void)//compare file change time
 		if (time1->tm_mday == time2->tm_mday)
 			printf("same time. \n");
 		else if (time1->tm_mday < time2->tm_mday)
-			printf("text1.dat file is early. \n");
+			printf("text1 is early. \n");
 		else
-			printf("text2.dat file is early. \n");
+			printf("text2 is early. \n");
 	}
 	else if (time1->tm_mon < time2->tm_mon) {
-		printf("text1.dat file is early. \n");
+		printf("text1 is early. \n");
 	}
 	else {
-		printf("text2.dat file is early. \n");
+		printf("text2 is early. \n");
 	}
 	printf("\n");
 }
@@ -107,15 +107,15 @@ void timecmp(void)
 		if (time1->tm_min == time2->tm_min)
 			printf("same time. \n");
 		else if (time1->tm_min < time2->tm_min)
-			printf("text1.dat file is early. \n");
+			printf("text1 is early. \n");
 		else
-			printf("text2.dat file is early. \n");
+			printf("text2 is early. \n");
 	}
 	else if (time1->tm_hour < time1->tm_hour)	{
-		printf("text1.dat file is early. \n");
+		printf("text1 is early. \n");
 	}
 	else {
-		printf("text2.dat file is early. \n");
+		printf("text2 is early. \n");
 	}
 	printf("\n");
 }
