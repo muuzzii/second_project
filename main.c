@@ -1,12 +1,9 @@
 #include <stdio.h>
-#include <string>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <time.h>
-#include <iostream>
-
-using namespace std;
 
 struct stat stat1, stat2;
 struct tm *time1, *time2;
@@ -50,10 +47,7 @@ void filetime2(void)
 }
 void sizecmp(void)//compare file size
 {
-	int a = stat("./text1",&stat1);
-  int b = stat("./text2",&stat2);
-  printf("%ld %ld\n",stat1.st_size,stat2.st_size);
-
+  printf("size compare\n");
   if(stat1.st_size > stat2.st_size){
     printf("text1 is bigger\n");
   }
@@ -63,12 +57,11 @@ void sizecmp(void)//compare file size
   else{
     printf("sizes are equal\n");
   }
+  printf("\n");
 }
 void blockcmp(void)//compare file block count
 {
-  int a = stat("./text1",&stat1);
-  int b = stat("./text2",&stat2);
-  printf("%ld %ld\n",stat1.st_blocks,stat2.st_blocks);
+  printf("block compare\n");
   if(stat1.st_blocks > stat2.st_blocks){
     printf("text1 is bigger\n");
   }
@@ -78,44 +71,57 @@ void blockcmp(void)//compare file block count
   else{
     printf("sizes are equal\n");
   }
+  printf("\n");
 }
 void datecmp(void)//compare file change time
 {
-	printf("data compare\n");
-	
-	if (time1.tm_mon == time2.tm_mon) {
-		if (time1.tm_mday == time2.tm_mday)
+  int t1_mon,t2_mon,t1_day,t2_day;
+	printf("date compare\n");
+  filetime1();
+  t1_mon = time1->tm_mon;
+  t1_day = time1->tm_mday;
+  filetime2();
+  t2_mon = time2->tm_mon;
+  t2_day = time2->tm_mday;
+	if (t1_mon == t2_mon) {
+		if (t1_day == t2_day)
 			printf("same time. \n");
-		else if (time1.tm_mday < time2.tm_mday)
-			printf("temp1.dat file is early. \n");
+		else if (t1_day < t2_day)
+			printf("text1 is early. \n");
 		else
-			printf("temp2.dat file is early. \n");
+			printf("text2 is early. \n");
 	}
-	else if (time1.tm_mon < time2.tm_mon) {
-		printf("temp.dat file is early. \n");
+	else if (t1_mon < t2_mon) {
+		printf("text1 is early. \n");
 	}
 	else {
-		printf("temp2.dat file is early. \n");
+		printf("text2 is early. \n");
 	}
 	printf("\n");
 }
 void timecmp(void)
 {
+  int t1_hour,t2_hour,t1_min,t2_min;
+  filetime1();
+  t1_hour = time1->tm_hour;
+  t1_min = time1->tm_min;
+  filetime2();
+  t2_hour = time2->tm_hour;
+  t2_min = time2->tm_min;
 	printf("time compare\n");
-
-	if (time1.tm_hour == time2.tm_hour) {
-		if (time1.tm_min == time2.tm_min)
-			printf("same time. \n");
-		else if (time1.tm_min < time2.tm_min)
-			printf("temp1.dat file is early. \n");
+	if (t1_hour == t2_hour) {
+		if (t1_min == t2_min)
+			printf("same date. \n");
+		else if (t1_min < t2_min)
+			printf("text1 is early. \n");
 		else
-			printf("temp2.dat file is early. \n");
+			printf("text2 is early. \n");
 	}
-	else if (time1.tm_hour < time1.tm_hour)	{
-		printf("temp.dat file is early. \n");
+	else if (t1_hour < t2_hour)	{
+		printf("text1 is early. \n");
 	}
 	else {
-		printf("temp2.dat file is early. \n");
+		printf("text2 is early. \n");
 	}
 	printf("\n");
 }
