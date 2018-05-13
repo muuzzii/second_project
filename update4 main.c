@@ -89,4 +89,21 @@ void datecmp(void)//compare file change time
 }
 void timecmp(void)
 {
+	printf("time compare\n");
+
+	if (time1.tm_hour == time2.tm_hour) {
+		if (time1.tm_min == time2.tm_min)
+			printf("same time. \n");
+		else if (time1.tm_min < time2.tm_min)
+			printf("temp1.dat file is early. \n");
+		else
+			printf("temp2.dat file is early. \n");
+	}
+	else if (time1.tm_hour < time1.tm_hour)	{
+		printf("temp.dat file is early. \n");
+	}
+	else {
+		printf("temp2.dat file is early. \n");
+	}
+	printf("\n");
 }
