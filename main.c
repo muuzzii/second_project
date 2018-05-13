@@ -46,6 +46,19 @@ void filetime2(void)
 }
 void sizecmp(void)//compare file size
 {
+	int a = stat("./text1",&stat1);
+  int b = stat("./text2",&stat2);
+  printf("%ld %ld\n",stat1.st_size,stat2.st_size);
+
+  if(stat1.st_size > stat2.st_size){
+    printf("text1 is bigger\n");
+  }
+  else if(stat1.st_size < stat2.st_size){
+    printf("text2 is bigger\n");
+  }
+  else{
+    printf("sizes are equal\n");
+  }
 }
 void blockcmp(void)//compare file block count
 {
