@@ -66,10 +66,56 @@ void sizecmp(void)//compare file size
 }
 void blockcmp(void)//compare file block count
 {
+  int a = stat("./text1",&stat1);
+  int b = stat("./text2",&stat2);
+  printf("%ld %ld\n",stat1.st_blocks,stat2.st_blocks);
+  if(stat1.st_blocks > stat2.st_blocks){
+    printf("text1 is bigger\n");
+  }
+  else if(stat1.st_blocks < stat2.st_blocks){
+    printf("text2 is bigger\n");
+  }
+  else{
+    printf("sizes are equal\n");
+  }
 }
 void datecmp(void)//compare file change time
 {
+	printf("data compare\n");
+	
+	if (time1.tm_mon == time2.tm_mon) {
+		if (time1.tm_mday == time2.tm_mday)
+			printf("same time. \n");
+		else if (time1.tm_mday < time2.tm_mday)
+			printf("temp1.dat file is early. \n");
+		else
+			printf("temp2.dat file is early. \n");
+	}
+	else if (time1.tm_mon < time2.tm_mon) {
+		printf("temp.dat file is early. \n");
+	}
+	else {
+		printf("temp2.dat file is early. \n");
+	}
+	printf("\n");
 }
 void timecmp(void)
 {
+	printf("time compare\n");
+
+	if (time1.tm_hour == time2.tm_hour) {
+		if (time1.tm_min == time2.tm_min)
+			printf("same time. \n");
+		else if (time1.tm_min < time2.tm_min)
+			printf("temp1.dat file is early. \n");
+		else
+			printf("temp2.dat file is early. \n");
+	}
+	else if (time1.tm_hour < time1.tm_hour)	{
+		printf("temp.dat file is early. \n");
+	}
+	else {
+		printf("temp2.dat file is early. \n");
+	}
+	printf("\n");
 }
